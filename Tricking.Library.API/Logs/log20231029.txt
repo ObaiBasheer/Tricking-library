@@ -1,0 +1,8 @@
+2023-10-29 14:59:23.644 +03:00 [INF] Now listening on: http://localhost:5073
+2023-10-29 14:59:23.664 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-29 14:59:23.665 +03:00 [INF] Hosting environment: Development
+2023-10-29 14:59:23.665 +03:00 [INF] Content root path: C:\Users\obai\source\repos\Tricking.Library\Tricking.Library.API
+2023-10-29 15:19:09.764 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5073/api/Videos application/json 108
+2023-10-29 15:19:09.800 +03:00 [INF] HTTP GET /api/Videos ({UserId}) responded 404 in 0.3613ms
+2023-10-29 15:19:09.804 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5073/api/Videos application/json 108 - 404 0 - 41.8286ms
+2023-10-29 15:56:42.348 +03:00 [INF] Application is shutting down...

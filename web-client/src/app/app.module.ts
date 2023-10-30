@@ -11,9 +11,16 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatListModule } from '@angular/material/list';
 
+import { HttpClientModule } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
+    BrowserModule,
+
+    HttpClientModule,
+
     MatCardModule,
     MatToolbarModule,
     MatButtonModule,

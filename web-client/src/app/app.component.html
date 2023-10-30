@@ -1,11 +1,27 @@
-<mat-form-field class="columns">
-  <!-- <mat-label *ngIf="selectedFiles; else newFile">{{selectedFiles.item(0).name}}</mat-label> -->
-  <ng-template #newFile>
-    <mat-label>Choose file</mat-label>
-  </ng-template>
-  <input matInput disabled />
-  <button mat-icon-button matSuffix>
-    <!-- <mat-icon>attach_file</mat-icon> -->
-  </button>
-  <!-- <input hidden (change)="selectFile($event)" #fileInput type="file" id="file"> -->
-</mat-form-field>
+<mat-card>
+  <mat-card-content>
+    <h2 class="mat-h2">Upload File</h2>
+
+    <div class="file-input-wrapper">
+      <button mat-raised-button (click)="fileInput.click()" color="primary">
+        Choose File
+      </button>
+      <input
+        type="file"
+        style="display: none"
+        (change)="onFileSelected($event)"
+        #fileInput
+      />
+      <span *ngIf="fileName">{{ fileName }}</span>
+    </div>
+
+    <button
+      mat-raised-button
+      color="accent"
+      (click)="uploadFile()"
+      [disabled]="!selectedFile"
+    >
+      Upload
+    </button>
+  </mat-card-content>
+</mat-card>
