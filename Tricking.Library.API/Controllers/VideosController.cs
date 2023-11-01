@@ -8,10 +8,12 @@ namespace Tricking.Library.API.Controllers
     public class VideosController : ControllerBase
     {
         private readonly ILogger<VideosController> _logger;
+        private readonly IWebHostEnvironment _env;
 
-        public VideosController(ILogger<VideosController> logger)
+        public VideosController(ILogger<VideosController> logger, IWebHostEnvironment nev)
         {
             _logger = logger;
+            _env = nev;
         }
 
         [HttpPost("upload")]
@@ -24,9 +26,15 @@ namespace Tricking.Library.API.Controllers
             }
 
             // Choose a directory to save the file. This can be anywhere on your server.
-            var savePath = Path.Combine("UploadedFiles", file.FileName);
+            //var savePath = Path.Combine("UploadedFiles", file.FileName);
 
-            using (var fileStream = new FileStream(savePath, FileMode.Create))
+            var mime = file.FileName.Split('.');
+
+            var fileName = string.Concat(Path.GetRandomFileName(), ".", mime);
+
+            var savePath = Path.Combine(_env.WebRootPath, fileName);
+
+            await using (var fileStream = new FileStream(savePath, FileMode.Create, FileAccess.Write))
             {
                 await file.CopyToAsync(fileStream);
             }
